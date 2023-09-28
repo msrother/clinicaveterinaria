@@ -1,6 +1,6 @@
 package br.upf.clinicaveterinaria.model
 
-data class Servico(
+data class Consulta(
 
         val id: Long? = null,
         val tipo: String,

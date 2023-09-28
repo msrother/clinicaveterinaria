@@ -1,7 +1,7 @@
 package br.upf.clinicaveterinaria.dto
 
 
-data class ServicoResponseDTO(
+data class ConsultaResponseDTO(
         val id: Long?,
         val tipo: String,
         val valor: Double,
