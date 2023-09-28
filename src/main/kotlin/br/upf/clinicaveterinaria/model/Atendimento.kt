@@ -5,5 +5,6 @@ import java.time.LocalDate
 data class Atendimento(
         val id: Long? = null,
         val data_atendimento: LocalDate,
-        val animal: Animal
+        val animal: Animal,
+        val servico: Servico
 )
