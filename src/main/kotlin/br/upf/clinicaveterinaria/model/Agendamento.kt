@@ -2,9 +2,9 @@ package br.upf.clinicaveterinaria.model
 
 import java.time.LocalDate
 
-data class Atendimento(
+data class Agendamento(
         val id: Long? = null,
-        val data_atendimento: LocalDate,
+        val data_agendamento: LocalDate,
         val animal: Animal,
-        val servico: Servico
+        val consulta: Consulta
 )
