@@ -15,7 +15,7 @@ class ConsultaService(
     }
     fun buscarPorId(id: Long): ConsultaResponseDTO {
         val consulta = repository.findAll().first { it.id == id }
-        return converter.toConsultaResponseDTO(consulta);
+        return converter.toConsultaResponseDTO(consulta)
     }
     fun cadastrar(dto: ConsultaDTO): ConsultaResponseDTO {
         return converter.toConsultaResponseDTO(repository.cadastrar(converter.toConsulta(dto)))
