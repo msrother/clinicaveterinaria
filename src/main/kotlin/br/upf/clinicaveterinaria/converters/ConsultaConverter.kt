@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component
 
 @Component
 class ConsultaConverter {
-    fun toEvento(dto: ConsultaDTO): Consulta {
+    fun toConsulta(dto: ConsultaDTO): Consulta {
         return Consulta(
                 tipo = dto.tipo,
                 valor = dto.valor,
