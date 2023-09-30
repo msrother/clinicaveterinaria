@@ -1,11 +1,13 @@
 package br.upf.clinicaveterinaria.service
 
+import br.upf.clinicaveterinaria.converters.ConsultaConverter
 import br.upf.clinicaveterinaria.dto.ConsultaDTO
 import br.upf.clinicaveterinaria.dto.ConsultaResponseDTO
-import javax.management.loading.ClassLoaderRepository
+import br.upf.clinicaveterinaria.repository.ConsultaRepository
+
 
 class ConsultaService(
-        private val repository: ConsultaRepository,   //necessário fazer o repository
+        private val repository: ConsultaRepository,
         private val converter: ConsultaConverter) {
     fun listar(): List<ConsultaResponseDTO>{
         return repository.findAll()
@@ -20,8 +22,8 @@ class ConsultaService(
     }
 
     fun atualizar(id:Long, dto: ConsultaDTO): ConsultaResponseDTO {
-        val consultaAtualizado = repository.update(id, converter.toConsulta(dto))
-        return converter.toConsultaResponseDTO(consultaAtualizado)
+        val consultaAtualizada = repository.update(id, converter.toConsulta(dto))
+        return converter.toConsultaResponseDTO(consultaAtualizada)
     }
 
     fun deletar (id: Long) {
