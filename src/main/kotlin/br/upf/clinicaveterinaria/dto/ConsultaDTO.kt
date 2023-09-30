@@ -9,5 +9,5 @@ data class ConsultaDTO(
         val valor: Double,
         @field:NotNull(message = "Sempre deve ter o nome do funcionário!")
         val funcionario: String,
-        val observacao: String,
+        val observacao: String
 )
