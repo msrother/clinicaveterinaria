@@ -6,6 +6,6 @@ data class Consulta(
         val tipo: String,
         val valor: Double,
         val funcionario: String,
-        val observacao: String,
+        val observacao: String
 
         )
