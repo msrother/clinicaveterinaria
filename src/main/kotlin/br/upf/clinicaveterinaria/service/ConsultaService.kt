@@ -4,11 +4,14 @@ import br.upf.clinicaveterinaria.converters.ConsultaConverter
 import br.upf.clinicaveterinaria.dto.ConsultaDTO
 import br.upf.clinicaveterinaria.dto.ConsultaResponseDTO
 import br.upf.clinicaveterinaria.repository.ConsultaRepository
+import org.springframework.stereotype.Service
 
-
+private const val CONSULTA_NOT_FOUND_MESSAGE = "Consulta não encontrada!"
+@Service
 class ConsultaService(
         private val repository: ConsultaRepository,
-        private val converter: ConsultaConverter) {
+        private val converter: ConsultaConverter
+) {
     fun listar(): List<ConsultaResponseDTO>{
         return repository.findAll()
                 .map (converter::toConsultaResponseDTO)
