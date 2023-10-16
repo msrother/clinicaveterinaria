@@ -14,10 +14,10 @@ interface ConsultaRepository: JpaRepository<Consulta, Long> {
 }
 
 
+//remover esta parte depois
+
 /*
-
-
-class ConsultaRepository:(private var consultas: MutableList<Consulta>) {
+class ConsultaRepository (private var consultas: MutableList<Consulta>) {
 
     private var idCont = 4L
     init {
@@ -74,5 +74,7 @@ class ConsultaRepository:(private var consultas: MutableList<Consulta>) {
 
 
 }
+
+
 
  */

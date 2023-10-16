@@ -3,7 +3,12 @@ package br.upf.clinicaveterinaria.controller
 import br.upf.clinicaveterinaria.dto.ConsultaDTO
 import br.upf.clinicaveterinaria.dto.ConsultaResponseDTO
 import br.upf.clinicaveterinaria.service.ConsultaService
+import jakarta.transaction.Transactional
 import jakarta.validation.Valid
+import org.springframework.data.domain.Page
+import org.springframework.data.domain.Pageable
+import org.springframework.data.web.PageableDefault
+import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 import org.springframework.web.util.UriComponentsBuilder
@@ -13,8 +18,11 @@ import org.springframework.web.util.UriComponentsBuilder
 class ConsultaController(val service: ConsultaService) {
 
     @GetMapping
-    fun listar():List<ConsultaResponseDTO> {
-        return service.listar()
+    fun listar(
+            @RequestParam(required = false) nomeConsulta: String?,
+            @PageableDefault(size = 10) paginacao: Pageable)
+    : Page<ConsultaResponseDTO> {
+        return service.listar(nomeConsulta, paginacao)
     }
 
     @GetMapping("/{id}")
@@ -23,18 +31,21 @@ class ConsultaController(val service: ConsultaService) {
     }
 
     @PostMapping
+    @Transactional
     fun cadastrar (@RequestBody @Valid dto: ConsultaDTO, uriBuilder: UriComponentsBuilder): ResponseEntity<ConsultaResponseDTO> {
         val consultaResponse = service.cadastrar(dto)
-        var uri = uriBuilder.path("/consultas/${consultaResponse.id}").build().toUri()
+        val uri = uriBuilder.path("/consultas/${consultaResponse.id}").build().toUri()
         return ResponseEntity.created(uri).body(consultaResponse)
     }
 
     @PutMapping("/{id}")
+    @Transactional
     fun atualizar (@PathVariable id: Long, @RequestBody @Valid dto: ConsultaDTO): ConsultaResponseDTO {
         return service.atualizar(id, dto)
     }
 
     @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     fun deletar (@PathVariable id: Long) {
         service.deletar(id)
     }
