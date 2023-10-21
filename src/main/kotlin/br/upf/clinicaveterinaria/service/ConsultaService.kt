@@ -16,12 +16,12 @@ class ConsultaService(
         private val converter: ConsultaConverter
 ) {
     fun listar(
-            nomeConsulta: String?,
+            tipoConsulta: String?,
             paginacao: Pageable): Page<ConsultaResponseDTO> {
-        val consultas = if (nomeConsulta == null){
+        val consultas = if (tipoConsulta == null){
             repository.findAll(paginacao)
         } else {
-            repository.findByNome(nomeConsulta, paginacao)
+            repository.findByTipo(tipoConsulta, paginacao)
         }
         return consultas
                 .map(converter::toConsultaResponseDTO)

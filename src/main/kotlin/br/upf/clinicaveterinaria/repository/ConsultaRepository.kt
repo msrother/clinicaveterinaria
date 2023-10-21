@@ -10,5 +10,5 @@ import org.springframework.stereotype.Repository
 @Repository
 interface ConsultaRepository: JpaRepository<Consulta, Long> {
 
-    fun findByNome(nomeConsulta: String, paginacao: Pageable): Page<Consulta>
+    fun findByTipo(tipoConsulta: String, paginacao: Pageable): Page<Consulta>
 }
