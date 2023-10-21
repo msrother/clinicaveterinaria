@@ -16,5 +16,5 @@ data class Consulta(
         val observacao: String,
 
         @OneToMany(mappedBy = "consulta")
-        val agendamento: List<Agendamento> = listOf()
+        val agendamentos: List<Agendamento> = listOf()
 )

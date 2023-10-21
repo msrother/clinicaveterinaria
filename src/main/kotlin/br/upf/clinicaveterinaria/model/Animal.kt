@@ -13,8 +13,8 @@ data class Animal(
         val nome: String,
         val tipo: String,
         val raca: String,
-        val dono_observacao: String,
+        val dono_obs: String,
 
         @OneToMany(mappedBy = "animal")
-        val consultas: List<Consulta> = listOf()
+        val agendamentos: List<Agendamento> = listOf()
 )

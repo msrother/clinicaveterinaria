@@ -4,8 +4,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class ClinicaveterinariaApplication
+class ClinicaVeterinariaApplication
 
 fun main(args: Array<String>) {
-	runApplication<ClinicaveterinariaApplication>(*args)
+	runApplication<ClinicaVeterinariaApplication>(*args)
 }

@@ -13,6 +13,7 @@ class ConsultaConverter {
                 valor = dto.valor,
                 funcionario = dto.funcionario,
                 observacao = dto.observacao,
+                agendamentos = listOf()
         )
     }
     fun toConsultaResponseDTO(consulta: Consulta) : ConsultaResponseDTO{
@@ -21,7 +22,8 @@ class ConsultaConverter {
                 tipo = consulta.tipo,
                 valor = consulta.valor,
                 funcionario = consulta.funcionario,
-                observacao =  consulta.observacao
+                observacao =  consulta.observacao,
+                agendamentos = consulta.agendamentos
         )
     }
 }
