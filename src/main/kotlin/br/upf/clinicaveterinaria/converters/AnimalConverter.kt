@@ -13,7 +13,7 @@ class AnimalConverter {
                 nome = animal.nome,
                 tipo = animal.tipo,
                 raca = animal.raca,
-                donoObs = animal.donoObs
+                dono_obs = animal.dono_obs
         )
     }
 
@@ -22,7 +22,7 @@ class AnimalConverter {
                 nome = dto.nome,
                 tipo = dto.tipo,
                 raca = dto.raca,
-                donoObs = dto.donoObs
+                dono_obs = dto.dono_obs
         )
     }
 }
