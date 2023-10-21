@@ -11,7 +11,7 @@ import java.time.LocalDate
 data class Agendamento(
         @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
         val id: Long? = null,
-        val dataAgendamento: LocalDate,
+        val data_agendamento: LocalDate,
         @ManyToOne
         val animal: Animal,
         @ManyToOne
