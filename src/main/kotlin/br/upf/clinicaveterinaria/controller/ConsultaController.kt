@@ -19,10 +19,10 @@ class ConsultaController(val service: ConsultaService) {
 
     @GetMapping
     fun listar(
-            @RequestParam(required = false) nomeConsulta: String?,
+            @RequestParam(required = false) tipoConsulta: String?,
             @PageableDefault(size = 10) paginacao: Pageable)
     : Page<ConsultaResponseDTO> {
-        return service.listar(nomeConsulta, paginacao)
+        return service.listar(tipoConsulta, paginacao)
     }
 
     @GetMapping("/{id}")
