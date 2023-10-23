@@ -1,10 +1,6 @@
 package br.upf.clinicaveterinaria.model
 
-import jakarta.persistence.Entity
-import jakarta.persistence.GeneratedValue
-import jakarta.persistence.GenerationType
-import jakarta.persistence.Id
-import jakarta.persistence.OneToMany
+import jakarta.persistence.*
 
 @Entity
 data class Animal(
@@ -13,8 +9,13 @@ data class Animal(
         val nome: String,
         val tipo: String,
         val raca: String,
-        val dono_obs: String,
+        val observacao: String,
+
+        @ManyToOne
+        val usuario: Usuario,
 
         @OneToMany(mappedBy = "animal")
         val agendamentos: List<Agendamento> = listOf()
+
+
 )

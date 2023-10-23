@@ -3,6 +3,8 @@ package br.upf.clinicaveterinaria.converters
 import br.upf.clinicaveterinaria.dto.AnimalDTO
 import br.upf.clinicaveterinaria.dto.AnimalResponseDTO
 import br.upf.clinicaveterinaria.model.Animal
+import br.upf.clinicaveterinaria.model.Usuario
+import org.springframework.security.core.context.SecurityContextHolder
 import org.springframework.stereotype.Component
 
 @Component
@@ -13,16 +15,19 @@ class AnimalConverter {
                 nome = animal.nome,
                 tipo = animal.tipo,
                 raca = animal.raca,
-                dono_obs = animal.dono_obs
+                observacao = animal.observacao
         )
     }
 
     fun toAnimal(dto: AnimalDTO): Animal {
+        val usuarioAtual = SecurityContextHolder.getContext().authentication.principal as Usuario
+
         return Animal(
                 nome = dto.nome,
                 tipo = dto.tipo,
                 raca = dto.raca,
-                dono_obs = dto.dono_obs
+                observacao = dto.observacao,
+                usuario = usuarioAtual
         )
     }
 }
