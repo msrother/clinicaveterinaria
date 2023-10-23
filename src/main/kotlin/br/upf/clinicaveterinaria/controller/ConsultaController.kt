@@ -55,6 +55,7 @@ class ConsultaController(val service: ConsultaService) {
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
+    @Transactional
     fun deletar (@PathVariable id: Long) {
         service.deletar(id)
     }
