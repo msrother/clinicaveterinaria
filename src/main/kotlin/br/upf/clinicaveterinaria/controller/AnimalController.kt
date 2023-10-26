@@ -38,10 +38,10 @@ class AnimalController(val service: AnimalService) {
     fun cadastrar(@RequestBody @Valid dto: AnimalDTO,
                   uriBuilder: UriComponentsBuilder
     ): ResponseEntity<AnimalResponseDTO> {
-        val userResponse = service.cadastrar(dto)
-        val uri = uriBuilder.path("/animais/${userResponse.id}")
+        val animalResponse = service.cadastrar(dto)
+        val uri = uriBuilder.path("/animais/${animalResponse.id}")
                 .build().toUri()
-        return ResponseEntity.created(uri).body(userResponse)
+        return ResponseEntity.created(uri).body(animalResponse)
     }
 
     @PutMapping("/{id}")
