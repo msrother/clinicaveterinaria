@@ -4,7 +4,6 @@ import br.upf.clinicaveterinaria.dto.AnimalDTO
 import br.upf.clinicaveterinaria.dto.AnimalResponseDTO
 import br.upf.clinicaveterinaria.model.Animal
 import br.upf.clinicaveterinaria.model.Usuario
-import org.springframework.security.core.context.SecurityContextHolder
 import org.springframework.stereotype.Component
 
 @Component
@@ -20,8 +19,7 @@ class AnimalConverter {
     }
 
     fun toAnimal(dto: AnimalDTO): Animal {
-        val usuarioAtual = SecurityContextHolder.getContext().authentication.principal as Usuario
-
+        val usuarioAtual = Usuario(id = null , nome = "", cidade = "", telefone = "")
         return Animal(
                 nome = dto.nome,
                 tipo = dto.tipo,
