@@ -14,18 +14,20 @@ class AnimalConverter {
                 nome = animal.nome,
                 tipo = animal.tipo,
                 raca = animal.raca,
-                observacao = animal.observacao
+                observacao = animal.observacao,
+                agendamentos = animal.agendamentos
         )
     }
 
     fun toAnimal(dto: AnimalDTO): Animal {
-        val usuarioAtual = Usuario(id = null , nome = "", cidade = "", telefone = "")
+
         return Animal(
                 nome = dto.nome,
                 tipo = dto.tipo,
                 raca = dto.raca,
                 observacao = dto.observacao,
-                usuario = usuarioAtual
+                agendamentos = listOf(),
+                usuario = Usuario(id = null , nome = "", cidade = "", telefone = "")
         )
     }
 }

@@ -1,5 +1,6 @@
 package br.upf.clinicaveterinaria.model
 
+import com.fasterxml.jackson.annotation.JsonBackReference
 import jakarta.persistence.Entity
 import jakarta.persistence.GeneratedValue
 import jakarta.persistence.GenerationType
@@ -16,5 +17,6 @@ data class Usuario(
     val telefone: String,
 
     @OneToMany(mappedBy = "usuario")
+    @JsonBackReference
     val animais: List<Animal> = listOf()
 )
