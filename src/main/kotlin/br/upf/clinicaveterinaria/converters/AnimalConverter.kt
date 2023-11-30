@@ -3,7 +3,6 @@ package br.upf.clinicaveterinaria.converters
 import br.upf.clinicaveterinaria.dto.AnimalDTO
 import br.upf.clinicaveterinaria.dto.AnimalResponseDTO
 import br.upf.clinicaveterinaria.model.Animal
-import br.upf.clinicaveterinaria.model.Usuario
 import org.springframework.stereotype.Component
 
 @Component
@@ -15,7 +14,8 @@ class AnimalConverter {
                 tipo = animal.tipo,
                 raca = animal.raca,
                 observacao = animal.observacao,
-                agendamentos = animal.agendamentos
+                agendamentos = animal.agendamentos,
+                usuario_id = animal.usuario
         )
     }
 
@@ -27,7 +27,7 @@ class AnimalConverter {
                 raca = dto.raca,
                 observacao = dto.observacao,
                 agendamentos = listOf(),
-                usuario = Usuario(id = null , nome = "", cidade = "", telefone = "")
+                usuario = dto.usuario_id
         )
     }
 }

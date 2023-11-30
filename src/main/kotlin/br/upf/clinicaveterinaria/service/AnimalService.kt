@@ -36,7 +36,8 @@ class AnimalService(
                         nome = dto.nome,
                         tipo = dto.tipo,
                         raca = dto.raca,
-                        observacao = dto.observacao
+                        observacao = dto.observacao,
+                        usuario = dto.usuario_id
                 )
         return converter.toAnimalResponseDTO(repository.save(animal))
     }

@@ -17,6 +17,6 @@ data class Usuario(
     val telefone: String,
 
     @OneToMany(mappedBy = "usuario")
-    @JsonBackReference
+    @JsonBackReference(value="animal-movement")
     val animais: List<Animal> = listOf()
 )

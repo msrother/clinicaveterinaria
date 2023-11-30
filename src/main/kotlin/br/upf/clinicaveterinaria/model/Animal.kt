@@ -13,11 +13,11 @@ data class Animal(
         val observacao: String,
 
         @ManyToOne
-        @JsonBackReference
+        @JsonBackReference(value="usuario-movement")
         val usuario: Usuario,
 
         @OneToMany(mappedBy = "animal")
-        @JsonBackReference
+        @JsonBackReference(value="agendamento-movement")
         val agendamentos: List<Agendamento> = listOf()
 
 

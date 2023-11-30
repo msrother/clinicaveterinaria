@@ -12,11 +12,11 @@ data class Agendamento(
 
         @ManyToOne
         @JoinColumn(name = "consulta_id")
-        @JsonManagedReference
+        @JsonManagedReference(value="consulta-movement")
         val consulta: Consulta,
 
         @ManyToOne
         @JoinColumn(name = "animal_id")
-        @JsonManagedReference
+        @JsonManagedReference(value="animal-movement")
         val animal: Animal,
 )

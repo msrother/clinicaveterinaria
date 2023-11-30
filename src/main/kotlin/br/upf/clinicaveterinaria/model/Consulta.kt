@@ -17,6 +17,6 @@ data class Consulta(
         val observacao: String,
 
         @OneToMany(mappedBy = "consulta")
-        @JsonBackReference
+        @JsonBackReference(value="consulta-movement")
         val agendamentos: List<Agendamento> = listOf()
 )
